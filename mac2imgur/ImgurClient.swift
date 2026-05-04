@@ -16,7 +16,6 @@
 
 import Foundation
 import ImgurSession
-import Crashlytics
 
 class ImgurClient: NSObject, IMGSessionDelegate {
     
@@ -65,7 +64,6 @@ class ImgurClient: NSObject, IMGSessionDelegate {
         
         if let error = error {
             NSLog("%@: %@", title, error as NSError)
-            Crashlytics.sharedInstance().recordError(error)
         }
     }
     
