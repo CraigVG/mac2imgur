@@ -2,7 +2,7 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Resurrect `mileswd/mac2imgur` as a modern, native Apple Silicon menu bar app published at `craigvandergalien/mac2imgur` with auto-updates, signed and notarized, while preserving the same Bundle Identifier and UX so the new build is a drop-in replacement on existing users' Macs.
+**Goal:** Resurrect `mileswd/mac2imgur` as a modern, native Apple Silicon menu bar app published at `CraigVG/mac2imgur` with auto-updates, signed and notarized, while preserving the same Bundle Identifier and UX so the new build is a drop-in replacement on existing users' Macs.
 
 **Architecture:** Two-layer split enforced by Swift packages. `Sources/Core/` is pure-Foundation business logic (Imgur upload, OAuth, screenshot detection, history, preferences) exposed via `@Observable` and `async`/`await`. `App/` is the AppKit menu bar shell plus a SwiftUI `Settings { }` scene. Tier-3 future work replaces only the Shell with SwiftUI; Core is unchanged.
 
@@ -35,7 +35,7 @@ Examples:
 
 # Phase 0 — Repo Setup & Attribution
 
-Goal: Establish `craigvandergalien/mac2imgur` as a public repo, with proper attribution and the upstream remote permanently severed. No code changes.
+Goal: Establish `CraigVG/mac2imgur` as a public repo, with proper attribution and the upstream remote permanently severed. No code changes.
 
 ### Task 0.1: Verify clean working tree
 
@@ -55,15 +55,15 @@ git remote -v
 
 If origin still exists, run `git remote remove origin`.
 
-### Task 0.2: Create `craigvandergalien/mac2imgur` on GitHub
+### Task 0.2: Create `CraigVG/mac2imgur` on GitHub
 
 **Step 1: Create the empty repo via gh CLI**
 
 ```bash
-gh repo create craigvandergalien/mac2imgur \
+gh repo create CraigVG/mac2imgur \
   --public \
   --description "A modern fork of mac2imgur — native Apple Silicon Mac app for uploading screenshots to Imgur. Originally by Miles Wu." \
-  --homepage "https://github.com/craigvandergalien/mac2imgur" \
+  --homepage "https://github.com/CraigVG/mac2imgur" \
   --license GPL-3.0
 ```
 
@@ -72,7 +72,7 @@ gh repo create craigvandergalien/mac2imgur \
 **Step 2: Verify**
 
 ```bash
-gh repo view craigvandergalien/mac2imgur --json name,visibility,licenseInfo
+gh repo view CraigVG/mac2imgur --json name,visibility,licenseInfo
 ```
 
 Expected: name, visibility public, licenseInfo with GPL-3.0.
@@ -83,11 +83,11 @@ Expected: name, visibility public, licenseInfo with GPL-3.0.
 
 ```bash
 cd ~/mac2imgur
-git remote add origin git@github.com:craigvandergalien/mac2imgur.git
+git remote add origin git@github.com:CraigVG/mac2imgur.git
 git remote -v
 ```
 
-**Expected:** origin points at `git@github.com:craigvandergalien/mac2imgur.git`.
+**Expected:** origin points at `git@github.com:CraigVG/mac2imgur.git`.
 
 ### Task 0.4: Force-push our local history (overwrites the empty new repo's auto-generated commits)
 
@@ -98,7 +98,7 @@ cd ~/mac2imgur
 git push --force --set-upstream origin master
 ```
 
-**Expected:** push succeeds, upstream tracking set. Visit https://github.com/craigvandergalien/mac2imgur in a browser and verify history (the original mileswd commits + our design doc commit).
+**Expected:** push succeeds, upstream tracking set. Visit https://github.com/CraigVG/mac2imgur in a browser and verify history (the original mileswd commits + our design doc commit).
 
 ### Task 0.5: Verify LICENSE is upstream's verbatim GPL-3.0
 
@@ -131,7 +131,7 @@ This software is a derivative work of mac2imgur, originally created by Miles Wu.
 ## Copyright Holders
 
 - Copyright © 2013–2018 Miles Wu — Original work ([github.com/mileswd/mac2imgur](https://github.com/mileswd/mac2imgur))
-- Copyright © 2026 Craig Vandergalien — Modernization, additions, and ongoing maintenance ([github.com/craigvandergalien/mac2imgur](https://github.com/craigvandergalien/mac2imgur))
+- Copyright © 2026 Craig Vandergalien — Modernization, additions, and ongoing maintenance ([github.com/CraigVG/mac2imgur](https://github.com/CraigVG/mac2imgur))
 
 ## License
 
@@ -220,7 +220,7 @@ A simple Mac menu bar app that uploads screenshots and images to [Imgur](https:/
 
 ## Installation
 
-[Download the latest release](https://github.com/craigvandergalien/mac2imgur/releases/latest), unzip, and drag `mac2imgur.app` to `/Applications`.
+[Download the latest release](https://github.com/CraigVG/mac2imgur/releases/latest), unzip, and drag `mac2imgur.app` to `/Applications`.
 
 **Requirements:** macOS 13 (Ventura) or later, Apple Silicon or Intel.
 
@@ -259,7 +259,7 @@ Licensed under [GPL-3.0-or-later](./LICENSE).
 
 ## Issues
 
-Open an issue at [github.com/craigvandergalien/mac2imgur/issues](https://github.com/craigvandergalien/mac2imgur/issues). Pre-existing issues on the original repo are not tracked here.
+Open an issue at [github.com/CraigVG/mac2imgur/issues](https://github.com/CraigVG/mac2imgur/issues). Pre-existing issues on the original repo are not tracked here.
 ```
 
 **Step 2: Commit**
@@ -2156,7 +2156,7 @@ echo "PASTE_PUBLIC_KEY_HERE" > /tmp/sparkle_public_key.txt
 In Xcode: open `App/Resources/Info.plist`, add a key `SUPublicEDKey` (String) with the public key value.
 
 Also add:
-- `SUFeedURL` (String) = `https://raw.githubusercontent.com/craigvandergalien/mac2imgur/main/appcast.xml`
+- `SUFeedURL` (String) = `https://raw.githubusercontent.com/CraigVG/mac2imgur/main/appcast.xml`
 - `SUEnableInstallerLauncherService` (Boolean) = YES (Sparkle 2 requirement for sandboxed updates)
 
 **Commit:** `[sparkle] Add SUPublicEDKey, SUFeedURL, installer launcher`
@@ -2187,7 +2187,7 @@ cat > appcast.xml << 'EOF'
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title>mac2imgur</title>
-    <link>https://raw.githubusercontent.com/craigvandergalien/mac2imgur/main/appcast.xml</link>
+    <link>https://raw.githubusercontent.com/CraigVG/mac2imgur/main/appcast.xml</link>
     <description>Most recent updates to mac2imgur</description>
     <language>en</language>
     <!-- Items are added by the release workflow -->
@@ -2213,7 +2213,7 @@ Copy the output.
 **Step 2: Set it as a GitHub Actions secret**
 
 ```bash
-echo "PASTE_PRIVATE_KEY" | gh secret set SPARKLE_PRIVATE_KEY --repo craigvandergalien/mac2imgur
+echo "PASTE_PRIVATE_KEY" | gh secret set SPARKLE_PRIVATE_KEY --repo CraigVG/mac2imgur
 ```
 
 **No commit** (secrets are out-of-band).
@@ -2264,14 +2264,14 @@ Required secrets (all `gh secret set`):
 For each:
 
 ```bash
-gh secret set <NAME> --repo craigvandergalien/mac2imgur
+gh secret set <NAME> --repo CraigVG/mac2imgur
 # Paste value when prompted
 ```
 
 For `MACOS_CERT`, first export from Keychain Access as `.p12`, then:
 
 ```bash
-base64 -i cert.p12 | gh secret set MACOS_CERT --repo craigvandergalien/mac2imgur
+base64 -i cert.p12 | gh secret set MACOS_CERT --repo CraigVG/mac2imgur
 ```
 
 **No commit** — secrets are out-of-band.

@@ -22,7 +22,7 @@ The Imgur API itself is healthy. Anonymous Client-ID uploads still work in 2026.
 
 - Native Apple Silicon binary (`arm64`) that runs cleanly on macOS 13+
 - Drop-in replacement for the original on the user's Mac (same Bundle Identifier, preserves preferences and OAuth state)
-- Public GitHub repo at `craigvandergalien/mac2imgur` with auto-updates via Sparkle 2
+- Public GitHub repo at `CraigVG/mac2imgur` with auto-updates via Sparkle 2
 - Signed and notarized for friction-free downloads
 - Architectural separation between business logic and UI shell, so a future SwiftUI rewrite (Tier 3) becomes a UI-layer swap rather than a full rewrite
 
@@ -221,7 +221,7 @@ No promises. Hobby project. Patch releases as needed.
 
 ### Strategy: clone-and-push (not GitHub Fork)
 
-`git clone` from upstream, change `origin` to `craigvandergalien/mac2imgur`, push. Full first-class repo on the profile, fresh issue tracker, GitHub Pages enabled.
+`git clone` from upstream, change `origin` to `CraigVG/mac2imgur`, push. Full first-class repo on the profile, fresh issue tracker, GitHub Pages enabled.
 
 ### License — GPL-3.0-or-later
 
