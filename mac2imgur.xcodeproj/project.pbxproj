@@ -7,32 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		152EA96962C90875D89665B8 /* ImgurAlbumMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADFB0BC94A03A4F3A3B3EBB /* ImgurAlbumMenuController.swift */; };
-		1EFA4A855960D08DBE86794F /* StatusItemMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F00C8AB4755CC4D7AEBF44 /* StatusItemMenuController.swift */; };
-		2F5B73852C1BE437C53B3463 /* NSMenuExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FD530C0BA684FD3B391855 /* NSMenuExtension.swift */; };
-		406331D86152092258D69C5C /* ImgurMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A9EF2D58E442F57B99ADB /* ImgurMenuController.swift */; };
-		59FD3CA9A9831F8270E8F1F5 /* UploadsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAE880DF3A9CDD2FF59AB55 /* UploadsMenuController.swift */; };
+		7A63D6533DB9C652EF99D595 /* mac2imgurApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E80D7F9FF1AA0876588B29 /* mac2imgurApp.swift */; };
+		84FEE00D8D9B420AE2540F76 /* UploadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C771D70F6958E40E9C24D3FC /* UploadHandler.swift */; };
+		851EF08AFAB025DEF341DDD4 /* LoginItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53476519B2A78B3ACECE602 /* LoginItemService.swift */; };
+		8B6F6CC9D4881D59D8847833 /* ImgurOAuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1385110D14F95D923F187 /* ImgurOAuthFlow.swift */; };
 		8D096A2D8FC74C5DF70143DB /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FF2A6420968C0CF692E03 /* StatusItemController.swift */; };
 		8D4B77B35834EBEDF41DBB9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74918C03F009201DC4B7D5BE /* AppDelegate.swift */; };
-		B8A5B21516DDDD774647D726 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E8728AEC768223B44A4910 /* MenuController.swift */; };
+		A163B8AB2B1E20008776997B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73900B895749B87B23949415 /* SettingsView.swift */; };
 		CEE7C6322733B0F0D598B9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB519DA8675A98A2E12A321 /* Assets.xcassets */; };
 		F242D120926B44500D9DAD5B /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 23D79D3ACA63F62007DF5834 /* Sparkle */; };
 		F6C550F0AE933FA18AFB0B1B /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 12FC267EB13D37153FB2B995 /* Core */; };
-		FC383F7162806BB52FD48FB6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D6F995CD1FFC482ABCB51B4 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2DAE880DF3A9CDD2FF59AB55 /* UploadsMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadsMenuController.swift; sourceTree = "<group>"; };
 		41ECD8ABC2591056AD6EA3E6 /* mac2imgur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mac2imgur.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		533A9EF2D58E442F57B99ADB /* ImgurMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurMenuController.swift; sourceTree = "<group>"; };
+		72C1385110D14F95D923F187 /* ImgurOAuthFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurOAuthFlow.swift; sourceTree = "<group>"; };
+		73900B895749B87B23949415 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		74918C03F009201DC4B7D5BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7ADFB0BC94A03A4F3A3B3EBB /* ImgurAlbumMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurAlbumMenuController.swift; sourceTree = "<group>"; };
 		92803AB09F298F33BF3120A4 /* mac2imgur */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mac2imgur; path = .; sourceTree = SOURCE_ROOT; };
-		A0F00C8AB4755CC4D7AEBF44 /* StatusItemMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemMenuController.swift; sourceTree = "<group>"; };
-		A5E8728AEC768223B44A4910 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		A53476519B2A78B3ACECE602 /* LoginItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemService.swift; sourceTree = "<group>"; };
+		B6E80D7F9FF1AA0876588B29 /* mac2imgurApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mac2imgurApp.swift; sourceTree = "<group>"; };
 		BBB519DA8675A98A2E12A321 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D8B0608370CAF94C1F3A2913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D9FD530C0BA684FD3B391855 /* NSMenuExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMenuExtension.swift; sourceTree = "<group>"; };
+		C771D70F6958E40E9C24D3FC /* UploadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadHandler.swift; sourceTree = "<group>"; };
 		FA1FF2A6420968C0CF692E03 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,30 +49,36 @@
 			isa = PBXGroup;
 			children = (
 				BBB519DA8675A98A2E12A321 /* Assets.xcassets */,
-				8D6F995CD1FFC482ABCB51B4 /* MainMenu.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		10EBFBFEFF5495FBA4D5174F /* Menu */ = {
+		3192769DB4122129C7737F2D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				7ADFB0BC94A03A4F3A3B3EBB /* ImgurAlbumMenuController.swift */,
-				533A9EF2D58E442F57B99ADB /* ImgurMenuController.swift */,
-				A5E8728AEC768223B44A4910 /* MenuController.swift */,
-				D9FD530C0BA684FD3B391855 /* NSMenuExtension.swift */,
-				A0F00C8AB4755CC4D7AEBF44 /* StatusItemMenuController.swift */,
-				2DAE880DF3A9CDD2FF59AB55 /* UploadsMenuController.swift */,
+				72C1385110D14F95D923F187 /* ImgurOAuthFlow.swift */,
 			);
-			path = Menu;
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3D9FA0276581D458AD20282F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				73900B895749B87B23949415 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		710EF551752DF12E9E76BC51 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				74918C03F009201DC4B7D5BE /* AppDelegate.swift */,
-				10EBFBFEFF5495FBA4D5174F /* Menu */,
+				B6E80D7F9FF1AA0876588B29 /* mac2imgurApp.swift */,
+				C771D70F6958E40E9C24D3FC /* UploadHandler.swift */,
+				3192769DB4122129C7737F2D /* Auth */,
 				0F01C62FB2A65185D1B6CD28 /* Resources */,
+				A43689165D47F9D94343FBB0 /* Services */,
+				3D9FA0276581D458AD20282F /* Settings */,
 				CB6EF65F47D26BAAADE0306D /* Status */,
 			);
 			path = App;
@@ -88,6 +90,14 @@
 				41ECD8ABC2591056AD6EA3E6 /* mac2imgur.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A43689165D47F9D94343FBB0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A53476519B2A78B3ACECE602 /* LoginItemService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AF28DB597A3978225280D9F4 /* Packages */ = {
@@ -182,7 +192,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE7C6322733B0F0D598B9F5 /* Assets.xcassets in Resources */,
-				FC383F7162806BB52FD48FB6 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,28 +203,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D4B77B35834EBEDF41DBB9B /* AppDelegate.swift in Sources */,
-				152EA96962C90875D89665B8 /* ImgurAlbumMenuController.swift in Sources */,
-				406331D86152092258D69C5C /* ImgurMenuController.swift in Sources */,
-				B8A5B21516DDDD774647D726 /* MenuController.swift in Sources */,
-				2F5B73852C1BE437C53B3463 /* NSMenuExtension.swift in Sources */,
+				8B6F6CC9D4881D59D8847833 /* ImgurOAuthFlow.swift in Sources */,
+				851EF08AFAB025DEF341DDD4 /* LoginItemService.swift in Sources */,
+				A163B8AB2B1E20008776997B /* SettingsView.swift in Sources */,
 				8D096A2D8FC74C5DF70143DB /* StatusItemController.swift in Sources */,
-				1EFA4A855960D08DBE86794F /* StatusItemMenuController.swift in Sources */,
-				59FD3CA9A9831F8270E8F1F5 /* UploadsMenuController.swift in Sources */,
+				84FEE00D8D9B420AE2540F76 /* UploadHandler.swift in Sources */,
+				7A63D6533DB9C652EF99D595 /* mac2imgurApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		8D6F995CD1FFC482ABCB51B4 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8B0608370CAF94C1F3A2913 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0B0AE93764963E74194E28AB /* Release */ = {
