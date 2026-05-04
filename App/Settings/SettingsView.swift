@@ -15,10 +15,18 @@
 
 import SwiftUI
 
-/// Stub Settings root - fleshed out in Phase 5.
 struct SettingsView: View {
     var body: some View {
-        Text("mac2imgur preferences")
-            .padding(40)
+        TabView {
+            GeneralSettingsView()
+                .tabItem { Label("General", systemImage: "gear") }
+            ScreenshotsSettingsView()
+                .tabItem { Label("Screenshots", systemImage: "camera") }
+            AccountSettingsView()
+                .tabItem { Label("Account", systemImage: "person.circle") }
+            AboutSettingsView()
+                .tabItem { Label("About", systemImage: "info.circle") }
+        }
+        .frame(width: 460, height: 320)
     }
 }

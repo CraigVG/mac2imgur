@@ -7,28 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44F46CA6172FF49F240B4D88 /* ScreenshotsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EA93C101DC9D6F445E32E /* ScreenshotsSettingsView.swift */; };
+		7541B6AD0D2D82786C5F8DB5 /* AboutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87B18095E018DBCCD0990F1 /* AboutSettingsView.swift */; };
 		7A63D6533DB9C652EF99D595 /* mac2imgurApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E80D7F9FF1AA0876588B29 /* mac2imgurApp.swift */; };
 		84FEE00D8D9B420AE2540F76 /* UploadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C771D70F6958E40E9C24D3FC /* UploadHandler.swift */; };
 		851EF08AFAB025DEF341DDD4 /* LoginItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53476519B2A78B3ACECE602 /* LoginItemService.swift */; };
 		8B6F6CC9D4881D59D8847833 /* ImgurOAuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C1385110D14F95D923F187 /* ImgurOAuthFlow.swift */; };
 		8D096A2D8FC74C5DF70143DB /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FF2A6420968C0CF692E03 /* StatusItemController.swift */; };
 		8D4B77B35834EBEDF41DBB9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74918C03F009201DC4B7D5BE /* AppDelegate.swift */; };
+		90FBBC8B723B1C1CFBF03702 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22780DFCF49A76FF9D5BE742 /* GeneralSettingsView.swift */; };
 		A163B8AB2B1E20008776997B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73900B895749B87B23949415 /* SettingsView.swift */; };
 		CEE7C6322733B0F0D598B9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB519DA8675A98A2E12A321 /* Assets.xcassets */; };
+		ED007417F31195C74BC3C676 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D54B7C6C960A7B3BA75385 /* AccountSettingsView.swift */; };
 		F242D120926B44500D9DAD5B /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 23D79D3ACA63F62007DF5834 /* Sparkle */; };
 		F6C550F0AE933FA18AFB0B1B /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 12FC267EB13D37153FB2B995 /* Core */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22780DFCF49A76FF9D5BE742 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		41ECD8ABC2591056AD6EA3E6 /* mac2imgur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mac2imgur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C1385110D14F95D923F187 /* ImgurOAuthFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurOAuthFlow.swift; sourceTree = "<group>"; };
 		73900B895749B87B23949415 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		74918C03F009201DC4B7D5BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		842EA93C101DC9D6F445E32E /* ScreenshotsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsSettingsView.swift; sourceTree = "<group>"; };
 		92803AB09F298F33BF3120A4 /* mac2imgur */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mac2imgur; path = .; sourceTree = SOURCE_ROOT; };
 		A53476519B2A78B3ACECE602 /* LoginItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemService.swift; sourceTree = "<group>"; };
 		B6E80D7F9FF1AA0876588B29 /* mac2imgurApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mac2imgurApp.swift; sourceTree = "<group>"; };
 		BBB519DA8675A98A2E12A321 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3D54B7C6C960A7B3BA75385 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		C771D70F6958E40E9C24D3FC /* UploadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadHandler.swift; sourceTree = "<group>"; };
+		D87B18095E018DBCCD0990F1 /* AboutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingsView.swift; sourceTree = "<group>"; };
 		FA1FF2A6420968C0CF692E03 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +72,10 @@
 		3D9FA0276581D458AD20282F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				D87B18095E018DBCCD0990F1 /* AboutSettingsView.swift */,
+				C3D54B7C6C960A7B3BA75385 /* AccountSettingsView.swift */,
+				22780DFCF49A76FF9D5BE742 /* GeneralSettingsView.swift */,
+				842EA93C101DC9D6F445E32E /* ScreenshotsSettingsView.swift */,
 				73900B895749B87B23949415 /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -202,9 +214,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7541B6AD0D2D82786C5F8DB5 /* AboutSettingsView.swift in Sources */,
+				ED007417F31195C74BC3C676 /* AccountSettingsView.swift in Sources */,
 				8D4B77B35834EBEDF41DBB9B /* AppDelegate.swift in Sources */,
+				90FBBC8B723B1C1CFBF03702 /* GeneralSettingsView.swift in Sources */,
 				8B6F6CC9D4881D59D8847833 /* ImgurOAuthFlow.swift in Sources */,
 				851EF08AFAB025DEF341DDD4 /* LoginItemService.swift in Sources */,
+				44F46CA6172FF49F240B4D88 /* ScreenshotsSettingsView.swift in Sources */,
 				A163B8AB2B1E20008776997B /* SettingsView.swift in Sources */,
 				8D096A2D8FC74C5DF70143DB /* StatusItemController.swift in Sources */,
 				84FEE00D8D9B420AE2540F76 /* UploadHandler.swift in Sources */,
