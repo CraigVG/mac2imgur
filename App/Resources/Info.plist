@@ -59,8 +59,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/mileswd/mac2imgur/master/Resources/appcast.xml</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
+	<string>https://raw.githubusercontent.com/CraigVG/mac2imgur/master/appcast.xml</string>
 </dict>
 </plist>

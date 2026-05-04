@@ -15,7 +15,6 @@
  */
 
 import Cocoa
-import LetsMove
 import Sparkle
 
 @NSApplicationMain
@@ -66,9 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             andSelector: #selector(handleAppleEvent(_:withReplyEvent:)),
             forEventClass: AEEventClass(kInternetEventClass),
             andEventID: AEEventID(kAEGetURL))
-        
-        PFMoveToApplicationsFolderIfNecessary()
-        
+
         hasFinishedLaunching = true
         
         queuedFileURLs.forEach {
