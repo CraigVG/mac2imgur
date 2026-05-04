@@ -15,8 +15,6 @@
  */
 
 import Cocoa
-import Fabric
-import Crashlytics
 import LetsMove
 import Sparkle
 
@@ -46,10 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         UserDefaults.standard.register(defaults: initialDefaults)
-        
-        // Crashlytics integration
-        Fabric.with([Crashlytics.self])
-        
+
         // Setup ImgurClient
         ImgurClient.shared.setup()
         
