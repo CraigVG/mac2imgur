@@ -73,42 +73,26 @@ final class StatusItemController: NSObject, NSMenuDelegate {
     func menuNeedsUpdate(_ menu: NSMenu) {
         menu.removeAllItems()
 
-        let signedIn = preferences.refreshToken != nil
-        let header = NSMenuItem(
-            title: signedIn ? "Signed in to Imgur" : "Anonymous uploads",
-            action: nil, keyEquivalent: "")
-        header.isEnabled = false
-        menu.addItem(header)
-
-        if signedIn {
-            menu.addItem(.init(title: "Sign Out", action: #selector(signOut), keyEquivalent: ""))
-        } else {
-            menu.addItem(.init(title: "Sign In to Imgur…", action: #selector(signIn), keyEquivalent: ""))
-        }
-
-        menu.addItem(.separator())
-
+        // Upload action (top of menu)
         let uploadItem = NSMenuItem(title: "Upload Images…", action: #selector(uploadImages), keyEquivalent: "u")
         uploadItem.target = self
         menu.addItem(uploadItem)
 
-        if !history.uploads.isEmpty {
-            menu.addItem(.separator())
-            let recentHeader = NSMenuItem(title: "Recent Uploads", action: nil, keyEquivalent: "")
-            recentHeader.isEnabled = false
-            menu.addItem(recentHeader)
+        menu.addItem(.separator())
 
-            for upload in history.uploads.prefix(10) {
-                let title = upload.originalFilename ?? upload.id
-                let item = NSMenuItem(title: title, action: #selector(copyRecentLink(_:)), keyEquivalent: "")
-                item.target = self
-                item.representedObject = upload.link
-                menu.addItem(item)
-            }
-        }
+        // Recent Uploads as a real submenu
+        let recentItem = NSMenuItem(title: "Recent Uploads", action: nil, keyEquivalent: "")
+        recentItem.submenu = buildRecentUploadsSubmenu()
+        menu.addItem(recentItem)
 
         menu.addItem(.separator())
 
+        // Imgur Account submenu
+        let accountItem = NSMenuItem(title: "Imgur Account", action: nil, keyEquivalent: "")
+        accountItem.submenu = buildAccountSubmenu()
+        menu.addItem(accountItem)
+
+        // Preferences (leaf — opens SwiftUI Settings scene)
         let prefsItem = NSMenuItem(
             title: "Preferences…",
             action: #selector(openPreferences),
@@ -116,24 +100,137 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         prefsItem.target = self
         menu.addItem(prefsItem)
 
-        let aboutItem = NSMenuItem(
+        menu.addItem(.separator())
+
+        // About submenu
+        let aboutItem = NSMenuItem(title: "About", action: nil, keyEquivalent: "")
+        aboutItem.submenu = buildAboutSubmenu()
+        menu.addItem(aboutItem)
+
+        let quitItem = NSMenuItem(
+            title: "Quit mac2imgur",
+            action: #selector(NSApplication.terminate(_:)),
+            keyEquivalent: "q")
+        menu.addItem(quitItem)
+    }
+
+    // MARK: Submenu builders
+
+    private func buildRecentUploadsSubmenu() -> NSMenu {
+        let submenu = NSMenu()
+        if history.uploads.isEmpty {
+            let none = NSMenuItem(title: "No Recent Uploads", action: nil, keyEquivalent: "")
+            none.isEnabled = false
+            submenu.addItem(none)
+        } else {
+            for upload in history.uploads.prefix(20) {
+                let title = upload.originalFilename ?? upload.id
+                let item = NSMenuItem(title: title, action: nil, keyEquivalent: "")
+                item.submenu = buildUploadActionSubmenu(for: upload)
+                submenu.addItem(item)
+            }
+            submenu.addItem(.separator())
+            let clear = NSMenuItem(title: "Clear Uploads", action: #selector(clearUploads), keyEquivalent: "")
+            clear.target = self
+            submenu.addItem(clear)
+        }
+        return submenu
+    }
+
+    private func buildUploadActionSubmenu(for upload: UploadedImage) -> NSMenu {
+        let submenu = NSMenu()
+
+        let copy = NSMenuItem(title: "Copy Image URL", action: #selector(copyRecentLink(_:)), keyEquivalent: "")
+        copy.target = self
+        copy.representedObject = upload.link
+        submenu.addItem(copy)
+
+        submenu.addItem(.separator())
+
+        let view = NSMenuItem(title: "View Image", action: #selector(openURL(_:)), keyEquivalent: "")
+        view.target = self
+        view.representedObject = upload.link
+        submenu.addItem(view)
+
+        if let pageURL = URL(string: "https://imgur.com/\(upload.id)") {
+            let viewPage = NSMenuItem(title: "View on Imgur", action: #selector(openURL(_:)), keyEquivalent: "")
+            viewPage.target = self
+            viewPage.representedObject = pageURL
+            submenu.addItem(viewPage)
+        }
+
+        if let deleteHash = upload.deleteHash,
+           let deleteURL = URL(string: "https://imgur.com/delete/\(deleteHash)") {
+            submenu.addItem(.separator())
+            let del = NSMenuItem(title: "Delete from Imgur…", action: #selector(openURL(_:)), keyEquivalent: "")
+            del.target = self
+            del.representedObject = deleteURL
+            submenu.addItem(del)
+        }
+
+        return submenu
+    }
+
+    private func buildAccountSubmenu() -> NSMenu {
+        let submenu = NSMenu()
+        let signedIn = preferences.refreshToken != nil
+
+        let status = NSMenuItem(
+            title: signedIn ? "Signed in" : "Uploading anonymously",
+            action: nil,
+            keyEquivalent: "")
+        status.isEnabled = false
+        submenu.addItem(status)
+
+        submenu.addItem(.separator())
+
+        if signedIn {
+            let signOutItem = NSMenuItem(title: "Sign Out", action: #selector(signOut), keyEquivalent: "")
+            signOutItem.target = self
+            submenu.addItem(signOutItem)
+        } else {
+            let signInItem = NSMenuItem(title: "Sign In to Imgur…", action: #selector(signIn), keyEquivalent: "")
+            signInItem.target = self
+            submenu.addItem(signInItem)
+        }
+
+        return submenu
+    }
+
+    private func buildAboutSubmenu() -> NSMenu {
+        let submenu = NSMenu()
+
+        let aboutPanel = NSMenuItem(
             title: "About mac2imgur",
             action: #selector(NSApplication.orderFrontStandardAboutPanel(_:)),
             keyEquivalent: "")
-        menu.addItem(aboutItem)
+        submenu.addItem(aboutPanel)
 
-        menu.addItem(.init(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-
-        // Wire targets where action selectors are on this controller
-        for item in menu.items where item.target == nil && item.action != nil {
-            switch item.action {
-            case #selector(signIn), #selector(signOut), #selector(uploadImages),
-                 #selector(copyRecentLink(_:)):
-                item.target = self
-            default:
-                break
-            }
+        if let projectURL = URL(string: "https://github.com/CraigVG/mac2imgur") {
+            let project = NSMenuItem(title: "Project Website", action: #selector(openURL(_:)), keyEquivalent: "")
+            project.target = self
+            project.representedObject = projectURL
+            submenu.addItem(project)
         }
+
+        submenu.addItem(.separator())
+
+        let checkUpdates = NSMenuItem(
+            title: "Check for Updates…",
+            action: #selector(checkForUpdates),
+            keyEquivalent: "")
+        checkUpdates.target = self
+        submenu.addItem(checkUpdates)
+
+        if let info = Bundle.main.infoDictionary,
+           let version = info["CFBundleShortVersionString"] as? String,
+           let build = info["CFBundleVersion"] as? String {
+            let versionItem = NSMenuItem(title: "Version \(version) (\(build))", action: nil, keyEquivalent: "")
+            versionItem.isEnabled = false
+            submenu.addItem(versionItem)
+        }
+
+        return submenu
     }
 
     @objc private func signIn() { onSignIn() }
@@ -166,6 +263,21 @@ final class StatusItemController: NSObject, NSMenuDelegate {
                 Task { await uploader.upload(url: url, isScreenshot: false) }
             }
         }
+    }
+
+    @objc private func openURL(_ sender: NSMenuItem) {
+        guard let url = sender.representedObject as? URL else { return }
+        NSWorkspace.shared.open(url)
+    }
+
+    @objc private func clearUploads() {
+        history.clear()
+    }
+
+    @objc private func checkForUpdates() {
+        // SPUStandardUpdaterController exposes a checkForUpdates: action selector
+        // that walks the responder chain. The AppDelegate owns the controller.
+        NSApp.sendAction(Selector(("checkForUpdates:")), to: nil, from: nil)
     }
 }
 

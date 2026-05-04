@@ -98,6 +98,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         screenshotMonitor?.stop()
     }
 
+    // MARK: Sparkle (forwarded from menu items via responder chain)
+
+    @IBAction func checkForUpdates(_ sender: Any?) {
+        updaterController?.checkForUpdates(sender)
+    }
+
     // MARK: OAuth
 
     private func signIn() {
