@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>mac2imgur</title>
+    <link>https://raw.githubusercontent.com/CraigVG/mac2imgur/master/appcast.xml</link>
+    <description>Most recent updates to mac2imgur</description>
+    <language>en</language>
+    <!-- Items are added by the release workflow on each tag push -->
+  </channel>
+</rss>

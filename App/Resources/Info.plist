@@ -58,5 +58,9 @@
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
 	<string>https://raw.githubusercontent.com/CraigVG/mac2imgur/master/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>k/Vl8mBwV50j4Qy97+cZSOj6UNYDF55Ae5V8ilxOU4c=</string>
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
 </dict>
 </plist>
