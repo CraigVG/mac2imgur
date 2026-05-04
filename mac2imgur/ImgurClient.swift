@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import ImgurSession
 
 class ImgurClient: NSObject, IMGSessionDelegate {
     
