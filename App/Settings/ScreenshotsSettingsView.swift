@@ -12,6 +12,9 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with mac2imgur.  If not, see <http://www.gnu.org/licenses/>.
+//
+// Copyright © 2026 Craig Vander Galien
+// Originally based on mac2imgur © 2013-2018 Miles Wu (https://github.com/mileswd/mac2imgur)
 
 import SwiftUI
 import Core
