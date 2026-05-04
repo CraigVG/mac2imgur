@@ -189,9 +189,18 @@ final class StatusItemController: NSObject, NSMenuDelegate {
             signOutItem.target = self
             submenu.addItem(signOutItem)
         } else {
-            let signInItem = NSMenuItem(title: "Sign In to Imgur…", action: #selector(signIn), keyEquivalent: "")
-            signInItem.target = self
+            // Imgur revoked OAuth on the leaked Client-ID and appears to have
+            // closed public app registration in 2026. Anonymous uploads still
+            // work — the Sign In button stays visible but disabled until
+            // OAuth is restored upstream.
+            let signInItem = NSMenuItem(title: "Sign In to Imgur (unavailable)", action: nil, keyEquivalent: "")
+            signInItem.isEnabled = false
+            signInItem.toolTip = "Imgur OAuth is currently unavailable. Anonymous uploads continue to work normally."
             submenu.addItem(signInItem)
+
+            let noteItem = NSMenuItem(title: "Anonymous uploads are working", action: nil, keyEquivalent: "")
+            noteItem.isEnabled = false
+            submenu.addItem(noteItem)
         }
 
         return submenu

@@ -30,20 +30,19 @@ struct AccountSettingsView: View {
 
         Form {
             if preferences.refreshToken == nil {
-                Section("Anonymous") {
-                    Text("Uploads are anonymous. Sign in to upload to your Imgur account or to a specific album.")
+                Section("Anonymous (current)") {
+                    Text("Uploads are anonymous and the URL is copied to your clipboard. Anonymous uploads work normally.")
                         .font(.callout)
                         .foregroundStyle(.secondary)
-                    Button {
+                }
+                Section("Imgur sign-in") {
+                    Text("Imgur OAuth login is currently unavailable. The Imgur API key shipped with mac2imgur was revoked for OAuth (anonymous uploads still work), and Imgur appears to have closed public app registration. Sign-in will return when this is resolved upstream.")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                    Button("Sign In to Imgur…") {
                         Task { await login() }
-                    } label: {
-                        if loggingIn {
-                            ProgressView().controlSize(.small)
-                        } else {
-                            Text("Sign In to Imgur…")
-                        }
                     }
-                    .disabled(loggingIn)
+                    .disabled(true)
                 }
             } else {
                 Section("Signed in") {
