@@ -133,6 +133,12 @@ jobs:
           GITHUB_REF_NAME: ${{ github.ref_name }}
           SPARKLE_SIG_OUTPUT: ${{ steps.sparkle.outputs.sig_output }}
         run: |
+          # Workflow checked out the tag, but appcast lives on master and may
+          # have advanced since the tag was cut (this commit, prior CI commits).
+          # Switch to master tip, run the updater, push.
+          git fetch origin master
+          git checkout origin/master -- appcast.xml scripts/update_appcast.sh project.yml
+          git checkout -B master origin/master
           ZIP_URL="https://github.com/CraigVG/mac2imgur/releases/download/${GITHUB_REF_NAME}/mac2imgur.zip"
           ZIP_PATH="build/export/mac2imgur.zip"
           ./scripts/update_appcast.sh "$GITHUB_REF_NAME" "$ZIP_URL" "$ZIP_PATH" "$SPARKLE_SIG_OUTPUT"

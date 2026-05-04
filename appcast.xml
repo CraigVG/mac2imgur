@@ -28,5 +28,16 @@
         type="application/octet-stream"
         sparkle:edSignature="mq7hzCT/t+X3waZGyRenz3buvE1wos9vC2mMIujeBFOg0McNcbYwwCgwr5sQVNAo4r2tcQG9E82znRoAhgw+Bw==" length="1986863" />
     </item>
+      <item>
+      <title>Version 2.0.2</title>
+      <pubDate>Mon, 04 May 2026 19:31:47 +0000</pubDate>
+      <sparkle:version>302</sparkle:version>
+      <sparkle:shortVersionString>2.0.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://github.com/CraigVG/mac2imgur/releases/download/v2.0.2/mac2imgur.zip"
+        type="application/octet-stream"
+        sparkle:edSignature="Kyv0PTurIJ+Wza2OiRR1gQOdRtEe2mROgXqCEUi7dKn3jymNm8ADV/NLizIse8gZoNhHrA45qyveHH+JfK73Bg==" length="1986838" />
+    </item>
   </channel>
 </rss>
