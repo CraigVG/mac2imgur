@@ -1,1 +1,57 @@
-// Placeholder — rewritten in Phase 3
+// This file is part of mac2imgur.
+//
+// mac2imgur is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// mac2imgur is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with mac2imgur.  If not, see <http://www.gnu.org/licenses/>.
+
+import Foundation
+import Observation
+
+@Observable
+public final class UploadHistory {
+    private let defaults: UserDefaults
+    private let key = "UploadHistoryV2"
+    private let maxCount: Int
+
+    public private(set) var uploads: [UploadedImage] = []
+
+    public init(defaults: UserDefaults = .standard, maxCount: Int = 50) {
+        self.defaults = defaults
+        self.maxCount = maxCount
+        self.uploads = Self.load(from: defaults, key: key)
+    }
+
+    public func add(_ image: UploadedImage) {
+        var next = uploads
+        next.insert(image, at: 0)
+        if next.count > maxCount {
+            next = Array(next.prefix(maxCount))
+        }
+        uploads = next
+        persist()
+    }
+
+    public func clear() {
+        uploads = []
+        persist()
+    }
+
+    private static func load(from defaults: UserDefaults, key: String) -> [UploadedImage] {
+        guard let data = defaults.data(forKey: key) else { return [] }
+        return (try? JSONDecoder().decode([UploadedImage].self, from: data)) ?? []
+    }
+
+    private func persist() {
+        let data = try? JSONEncoder().encode(uploads)
+        defaults.set(data, forKey: key)
+    }
+}
